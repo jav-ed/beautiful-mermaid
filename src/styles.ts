@@ -34,11 +34,11 @@ export const MONO_FONT_STACK = `${MONO_FONT}, 'SF Mono', 'Fira Code', ui-monospa
 /** Fixed font sizes used in the renderer (in px) */
 export const FONT_SIZES = {
   /** Node label text */
-  nodeLabel: 13,
+  nodeLabel: 14,
   /** Edge label text */
-  edgeLabel: 11,
+  edgeLabel: 12,
   /** Subgraph header text */
-  groupHeader: 12,
+  groupHeader: 13,
 } as const
 
 /** Font weights used per element type */
