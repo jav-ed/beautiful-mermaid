@@ -28,7 +28,7 @@ const SEQ = {
   /** Vertical space between actor boxes and first message */
   headerGap: 20,
   /** Vertical space per message row */
-  messageRowHeight: 40,
+  messageRowHeight: 52,
   /** Extra vertical space for self-messages (they loop back) */
   selfMessageHeight: 30,
   /** Activation box width (narrow rectangle on lifeline) */
@@ -46,6 +46,8 @@ const SEQ = {
   notePadX: 12,
   notePadY: 6,
   noteGap: 10,
+  /** Minimum gap from the bottom of the last note to the next message's y */
+  noteGapAfter: 38,
 } as const
 
 /**
@@ -236,9 +238,8 @@ export function layoutSequenceDiagram(
       }
 
       // Push messageY forward if notes extended beyond the normal advance.
-      // Add half a row height so the next message's label (rendered at msg.y - 6)
-      // has clearance from the last note's bottom edge.
-      messageY = Math.max(messageY, noteY + SEQ.messageRowHeight / 2)
+      // noteGapAfter gives the next message clearance from the last note's bottom edge.
+      messageY = Math.max(messageY, noteY + SEQ.noteGapAfter)
     }
   }
 
